@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
+const fs = require('fs').promises
 
 function createWindow() {
     const mainWindow = new BrowserWindow({
@@ -34,11 +35,18 @@ ipcMain.handle('extract-text', async (event, filePath) => {
     try {
         console.log('Received file path:', filePath)
         const { getTextExtractor } = await import('office-text-extractor')
-        const extractText = getTextExtractor(filePath) // Holen Sie sich den Extraktor für die Datei
-        if (typeof extractText !== 'function') {
+        const fileBuffer = await fs.readFile(filePath)
+        console.log('File buffer:', fileBuffer)
+
+        // Testen Sie die Struktur des Extraktors
+        const extractor = getTextExtractor(fileBuffer)
+        console.log('Extractor:', extractor)
+
+        if (typeof extractor.extractText !== 'function') {
             throw new Error('extractText is not a function')
         }
-        const text = await extractText(filePath)
+
+        const text = await extractor.extractText(fileBuffer)
         console.log('Extracted text:', text)
         return { success: true, text }
     } catch (error) {

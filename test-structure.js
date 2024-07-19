@@ -1,7 +1,8 @@
 (async () => {
     try {
-        const module = await import('office-text-extractor')
-        console.log(module) // Sehen Sie sich die Struktur des Moduls an
+        const { getTextExtractor } = await import('office-text-extractor')
+        const extractor = getTextExtractor('dummyFilePath') // Ein Beispiel-Pfad
+        console.log(extractor) // Struktur des zurückgegebenen Werts anzeigen
     } catch (error) {
         console.error('Error loading module:', error)
     }

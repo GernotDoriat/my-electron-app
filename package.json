@@ -6,9 +6,10 @@
     "start": "electron ."
   },
   "devDependencies": {
-    "electron": "^11.0.0"
+    "electron": "^31.2.1"
   },
   "dependencies": {
-    "office-text-extractor": "^1.0.0"
+    "fs": "^0.0.1-security",
+    "office-text-extractor": "^3.0.1"
   }
 }
