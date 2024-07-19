@@ -46,7 +46,7 @@ ipcMain.handle('extract-text', async (event, filePath) => {
             throw new Error('extractText is not a function')
         }
 
-        const text = await extractor.extractText(fileBuffer)
+        const text = await extractor.extractText({ input: fileBuffer, type: 'buffer' })
         console.log('Extracted text:', text)
         return { success: true, text }
     } catch (error) {
