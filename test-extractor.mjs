@@ -16,7 +16,7 @@ async function testExtractor(filePath) {
         }
 
         // Versuchen Sie, den Text zu extrahieren
-        const text = await extractor.extractText(fileBuffer)
+        const text = await extractor.extractText({ input: fileBuffer, type: 'buffer' })
         console.log('Extracted text:', text)
     } catch (error) {
         console.error('Error:', error)
