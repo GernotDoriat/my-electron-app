@@ -1,0 +1,14 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^11.0.0"
+  },
+  "dependencies": {
+    "office-text-extractor": "^1.0.0"
+  }
+}
