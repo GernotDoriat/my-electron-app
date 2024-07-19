@@ -25,5 +25,5 @@ async function testExtractor(filePath) {
 
 
 // Geben Sie den Pfad zu einer tatsächlichen Datei hier an
-const filePath = '/Volumes/T5/electron/my-electron-app/test.docx'
+const filePath = '/Volumes/T5/electron/office-text-extractor-electron-app/test.docx'
 testExtractor(filePath)
