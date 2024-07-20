@@ -23,4 +23,6 @@ document.getElementById('extractButton').addEventListener('click', async () => {
         console.warn('No file selected')
         document.getElementById('output').textContent = 'Please select a file'
     }
-});
+})
+
+document.getElementById('output').addEventListener('select', () => { console.warn('SELECT') })
